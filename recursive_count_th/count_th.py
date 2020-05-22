@@ -9,9 +9,9 @@ def count_th(word: str, substring: str = "th"):
     	return 0
     # seperate into head and tail
     # recursively call on tail
-    # increment count if found and consume next part
+    # increment count by len of substr if found and consume next part
     if word[:len(substring)] == substring:
-    	return 1 + count_th(word[1:])
+    	return 1 + count_th(word[len(substring):])
     # not increment count and consume next part
     else:
     	return 0 + count_th(word[1:])
