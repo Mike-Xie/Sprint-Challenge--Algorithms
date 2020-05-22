@@ -103,31 +103,39 @@ class SortingRobot:
     def sort(self):
         """
         Sort the robot's list using bubble sort
-        Use light for control flow
-        
+        More details in robot_uper.txt
+        TL:DR this is like some sort of low level programming project
         """
         # light off means work to be done still
-        self.set_light_off()
 
         while self.light_is_off():
+            # unless light is set back off in a further branch
+            # this causes the outer while loop to exit
             self.set_light_on()
 
+            
+            # iterate through the list going to the right
             while self.can_move_right():
                 self.swap_item()
                 self.move_right()
-
+                # when element is bigger, swap them
                 if self.compare_item() == 1:
+                    # these four swap the thing and go back to where we were
                     self.swap_item()
                     self.move_left()
                     self.swap_item()
                     self.move_right()
-                    # there's still more to do
+                    # set light off again so the while loop repeats
                     self.set_light_off()
-
+                # when element is smaller, put it back, go back where we were
                 else:
                     self.move_left()
                     self.swap_item()
                     self.move_right()
+            # reset all the way to the left, can't avoid iterating through twice
+            # in bubble since you have to walk through again with no hitches L-R         
+            while self.can_move_left():
+                self.move_left()
 
 
 
@@ -136,7 +144,7 @@ if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [99, 97, 58]
+    l = [99, 97, 58, 1]
     robot = SortingRobot(l)
 
     robot.sort()

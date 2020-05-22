@@ -1,0 +1,79 @@
+With minutes of planning we can save hours of coding.
+
+Let's start with an array a like so:
+
+This is the work flow to swap adjacent numbers 5 and 3.
+
+START
+index = 0, item = NONE
+a = [5, 3, 1]
+
+SWAP
+index = 0 item = 5
+a = [None, 3, 1] 
+
+MOVE R
+index = 1, item = 5
+a = [None, 3, 1]
+
+SWAP
+index = 1, item = 3
+a = [None, 5, 1]
+
+MOVE L
+index = 0, item = 3 
+a = [None, 5, 1]
+
+SWAP
+index = 0, item = None
+a = [3, 5, 1]
+
+#####
+
+So then, we have to do swap and move right to iterate through in a loop. 
+
+START
+index = 0, item = NONE
+a = [5, 3, 1]
+
+SWAP
+index = 0 item = 5
+a = [None, 3, 1] 
+
+MOVE R
+index = 1, item = 5
+a = [None, 3, 1]
+
+And exchanging at all depends on if it's correct or not.
+
+BRANCH TRUE: If it is, then we do:
+
+SWAP
+index = 1, item = 3
+a = [None, 5, 1]
+
+MOVE L
+index = 0, item = 3 
+a = [None, 5, 1]
+
+SWAP
+index = 0, item = None
+a = [3, 5, 1]
+
+And then have to move right once again to be back where we were
+
+MOVE R
+index = 1, item = None
+a = [3, 5, 1]
+
+BRANCH FALSE: Otherwise, we undo the looping swap so 
+
+MOVE L
+index = 0, item = 5
+a = [None, 3, 1]
+SWAP ITEM
+index = 0, item = None
+a = [5, 3, 1]
+MOVE R 
+index = 1, item = None 
+a = [5, 3, 1]
