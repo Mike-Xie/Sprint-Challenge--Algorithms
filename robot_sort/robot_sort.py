@@ -132,6 +132,8 @@ class SortingRobot:
                     self.move_left()
                     self.swap_item()
                     self.move_right()
+            if self.light_is_on():
+                break
             # reset all the way to the left, can't avoid iterating through twice
             # in bubble since you have to walk through again with no hitches L-R         
             while self.can_move_left():
