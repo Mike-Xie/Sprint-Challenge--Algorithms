@@ -111,9 +111,7 @@ class SortingRobot:
         while self.light_is_off():
             # unless light is set back off in a further branch
             # this causes the outer while loop to exit
-            self.set_light_on()
-
-            
+            self.set_light_on()    
             # iterate through the list going to the right
             while self.can_move_right():
                 self.swap_item()
@@ -127,19 +125,33 @@ class SortingRobot:
                     self.move_right()
                     # set light off again so the while loop repeats
                     self.set_light_off()
+                
                 # when element is smaller, put it back, go back where we were
                 else:
                     self.move_left()
                     self.swap_item()
                     self.move_right()
-            if self.light_is_on():
-                break
-            # reset all the way to the left, can't avoid iterating through twice
-            # in bubble since you have to walk through again with no hitches L-R         
+
+               
+
             while self.can_move_left():
+                self.swap_item()
                 self.move_left()
 
-
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.move_right()
+                    self.swap_item()
+                    self.move_left()
+                    # set light off again so the while loop repeats
+                    self.set_light_off()
+           
+                
+                else:
+                    self.move_right()
+                    self.swap_item()
+                    self.move_left()
+     
 
 
 if __name__ == "__main__":
