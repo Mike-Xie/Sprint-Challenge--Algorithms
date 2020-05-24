@@ -77,3 +77,14 @@ a = [5, 3, 1]
 MOVE R 
 index = 1, item = None 
 a = [5, 3, 1]
+
+STRETCH GOAL:
+
+Run time of naive bubble sort is about twice as long as stretch allows.
+
+Googled "bubble sort both ways" since not making swaps while going all the way back left seemed missed opportunity
+
+Pretty much just did swaps going left instead of back tracking all the way doing nothing, and also putting things back.
+
+This barely missed stretch, so we had to look for redundant comparisons and moving of things. 
+

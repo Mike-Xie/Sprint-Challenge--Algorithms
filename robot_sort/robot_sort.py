@@ -116,41 +116,55 @@ class SortingRobot:
             while self.can_move_right():
                 self.swap_item()
                 self.move_right()
+                print("able to go right")
+                print (self._list)
+                print(self._position)
                 # when element is bigger, swap them
                 if self.compare_item() == 1:
                     # these four swap the thing and go back to where we were
+                    print("did a swap right")
                     self.swap_item()
-                    self.move_left()
-                    self.swap_item()
-                    self.move_right()
+                    print(self._list)
+                    # self.move_left()
+                    # self.swap_item()
+                    # self.move_right()
                     # set light off again so the while loop repeats
                     self.set_light_off()
                 
                 # when element is smaller, put it back, go back where we were
-                else:
-                    self.move_left()
-                    self.swap_item()
-                    self.move_right()
-
+                # else:
+                #     self.move_left()
+                #     self.swap_item()
+                #     self.move_right()
+            print("swap at end of going right")
+            self.swap_item()
+            print(self._list)
                
 
             while self.can_move_left():
                 self.swap_item()
                 self.move_left()
+                print("able to go left")
+                print(self._list)
 
                 if self.compare_item() == -1:
+                    print("did a swap left")
                     self.swap_item()
-                    self.move_right()
-                    self.swap_item()
-                    self.move_left()
+                    print(self._list)
+                    print(self._position)
+                    # self.move_right()
+                    # self.swap_item()
+                    # self.move_left()
                     # set light off again so the while loop repeats
                     self.set_light_off()
-           
-                
-                else:
-                    self.move_right()
-                    self.swap_item()
-                    self.move_left()
+            print("swap at end of going left")
+            self.swap_item()
+            print(self._list)
+
+                # else:
+                #     self.move_right()
+                #     self.swap_item()
+                #     self.move_left()
      
 
 
@@ -158,7 +172,7 @@ if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [99, 97, 58, 1]
+    l = [99, 58, 1]
     robot = SortingRobot(l)
 
     robot.sort()
